@@ -1,0 +1,11 @@
+pandas==2.0.0
+prefect==2.7.7
+prefect-gcp[cloud_storage]==0.2.4
+prefect-gcp==0.4.0
+protobuf==4.21.11
+pyarrow==10.0.1
+pandas-gbq==0.18.1
+wbdata==0.3.0
+gcsfs==2023.3.0
+
+
