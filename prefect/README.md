@@ -14,7 +14,7 @@ For this project I decided to use prefect cloud.
     python3 ingest_deployment.py
 ```
 *Note:* In [settings.py](/prefect/settings.py) file you can configure the name of the blocks you need to create.
-4. To deploy the ingestion workglow
+4. To deploy the ingestion workflow
 
 
 ## Process

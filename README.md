@@ -31,10 +31,13 @@
    ```bash
       pip3 install -r requirements.txt  
    ```
-4. Provisión Cloud Insfrastructure
+4. *Provisión Cloud Insfrastructure(Terraform)*
    Go to [Local Setup for Terraform and GCP](/terraform/README.md) and configure GCP & Terraform.
    **Important:** do not forget to download service-account-keys (.json) for auth and saved it in the *root* of your project with the `service_account_keys.json` file name.
-5. Configure and execute [prefect](/prefect/README.md) to move the files from the hard disk to gcs.
+5. *Orchestration - Ingestion (Prefect)*
+   Configure and execute [prefect](/prefect/README.md) to move the files from the hard disk to gcs.
+6. DBT
+   
    
 
 
