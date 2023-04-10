@@ -36,6 +36,15 @@ For this project I use the API `http://api.worldbank.org/v2/en/indicator/{indica
 ## Dashboard
 ![dashboard](images/dashboard.png)
 
+## Table Structure
+- region: The name of the region for which the country is reported.
+- country_name: The name of the country for which the indicator value is reported.
+- country_code: The code assigned to the country by the ISO (International Organization for Standardization).
+- ind_name: The name of the indicator as reported by the World Bank.
+- ind_code: The code assigned to the indicator by the World Bank.
+- year: The year for which the indicator value is reported.
+- value: The value of the indicator for the given country, year, and indicator.
+
 
 ## Step-by-Step-Guide
 1. Clone the repository
