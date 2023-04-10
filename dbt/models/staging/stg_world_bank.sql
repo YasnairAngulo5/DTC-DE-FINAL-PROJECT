@@ -9,6 +9,7 @@ select
         year, 
         value
 from {{ source("staging",  "world_bank") }}
+where country_name is not null
 -- dbt build --m <model.sql> --var 'is_test_run: false'
 {% if var('is_test_run', default=true) %}
 
