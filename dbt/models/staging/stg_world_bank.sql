@@ -1,7 +1,8 @@
 {{ config(materialized="view") }}
 
 select 
-        country_code || '-' || ind_code || '-' || year as wbid,
+        {{ dbt_utils.surrogate_key(['country_code', 'ind_code', 'year', 'created_on']) }} as wbid,
+        created_on,
         country_name, 
         country_code, 
         ind_name, 
