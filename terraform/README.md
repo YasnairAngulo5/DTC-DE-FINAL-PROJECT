@@ -8,8 +8,8 @@
 
 #### Initial Setup
 1. Create an account with your Google email ID 
-2. Setup your first [project](https://console.cloud.google.com/) if you haven't already
-    * eg. "DTC DE Project", and note down the "Project ID" (we'll use this later when deploying infra with TF)
+2. Setup your first [project](https://console.cloud.google.com/) using `dtc-de-project-382603` id project.
+    * eg. "DTC DE Project", and in "Project ID" write  `dtc-de-project-382603`.
 3. Setup [service account & authentication](https://cloud.google.com/iam/docs/service-accounts-create#iam-service-accounts-create-gcloud) for this project
    * Grant `Viewer`, `Storage Admin`, `Storage Object Admin` and `BigQuery Admin`  roles.
    * Download service-account-keys (.json) for auth and **saved it in the root of your project** with `service_account_keys` name.
@@ -59,5 +59,6 @@ These commands will create:
 - `dtc_wb_data_lake` to upload the raw data
 - `bank_data` dataset
 - `world_bank` table
+- ADD OTHERS
 
 

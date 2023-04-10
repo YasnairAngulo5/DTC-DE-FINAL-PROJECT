@@ -37,6 +37,9 @@
 5. *Orchestration - Ingestion (Prefect)*
    Configure and execute [prefect](/prefect/README.md) to move the files from the hard disk to gcs.
 6. DBT
+      dbt run
+      dbt deps to install pacages once you clone the repo
+   
    
    
 
