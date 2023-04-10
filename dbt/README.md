@@ -10,6 +10,9 @@ Table of Contents
   - [Add GitHub repository](#add-github-repository)
   - [Review your project settings](#review-your-project-settings)
   - [(Optional) Link to your github account](#optional-link-to-your-github-account)
+  - [Build the development models using:](#build-the-development-models-using)
+  - [Create a new enviroment called production](#create-a-new-enviroment-called-production)
+  - [Configure and run the job to deploy to production](#configure-and-run-the-job-to-deploy-to-production)
 
 # How to setup dbt cloud with bigquery
 [Official documentation](https://docs.getdbt.com/tutorial/setting-up)
@@ -81,10 +84,25 @@ _Note: The dataset you'll see under the development credentials is the one you'l
 
 ## Review your project settings
 At the end, if you go to your projects it should look some like this: 
-![image](https://user-images.githubusercontent.com/4315804/152606066-f4d70546-7a5e-414a-9df9-8efd090216f8.png)
+![image](/images/dbt%20project%20settings.png)
 
 
 ## (Optional) Link to your github account
 You could simplify the process of adding and creating repositories by linking your GH account. [Official documentation](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-installing-the-github-application)
+
+## Build the development models using:
+  - `dbt deps`
+  - `dbt build`
+
+
+## Create a new enviroment called production
+![image](/images/dbt%20prod%20env.png)
+
+## Configure and run the job to deploy to production
+Create a new job for prodution enviroment and add the command `dbt build --var 'is_test_run: false'`
+
+
+After all this steps you should be able to see your data in development and production datasets in BigQuery.
+
 
 

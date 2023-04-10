@@ -51,57 +51,6 @@ resource "google_bigquery_dataset" "dataset" {
   location   = var.region
 }
 
-resource "google_bigquery_table" "table" {
-  dataset_id = google_bigquery_dataset.dataset.dataset_id
-  project    = var.project
-  table_id   = var.TABLE_NAME
-
-  time_partitioning {
-    type = "DAY"
-  }
-
-  labels = {
-    env = "default"
-  }
-
-  schema = <<EOF
-[
-    {
-      "name" : "country_name",
-      "type" : "STRING",
-      "description" : "Name of the country"
-    },
-    {
-      "name" : "country_code",
-      "type" : "STRING",
-      "description" : "Code of the country"
-    },
-    {
-      "name" : "ind_name",
-      "type" : "STRING",
-      "description" : "Indicator name"
-    },
-    {
-      "name" : "ind_code",
-      "type" : "STRING",
-      "description" : "Indicator code"
-    },
-
-    {
-      "name" : "year",
-      "type" : "INTEGER",
-      "description" : "Indicator year"
-    },
-    {
-      "name" : "value",
-      "type" : "FLOAT",
-      "description" : "Indicator year value"
-    }
-  ]
-EOF
-
-}
-
 # Resources Bucket
 # Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
 resource "google_storage_bucket" "resources" {

@@ -55,10 +55,15 @@ terraform destroy -var="project=<your-gcp-project-id>"
 ```
 
 These commands will create:
+Buckets:
 - `dtc_resources_bucket` with the indicators file inside. In case you want to add or update the indicators, modify the file `indicators.csv`
 - `dtc_wb_data_lake` to upload the raw data
-- `bank_data` dataset
-- `world_bank` table
-- ADD OTHERS
+
+Datasets:
+- bank_data
+- development
+- staging
+- production
+
 
 

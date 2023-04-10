@@ -58,7 +58,7 @@ def write_to_gcs(df: pd.DataFrame, year: int, month: int, indicator: str) -> str
 def web_to_gcs(year: int, month: int, indicator: str) -> tuple[int,str]:
 
     try:
-        dataset_url     = f'http://api.worldbank.org/v2/es/indicator/{indicator}?downloadformat=csv'
+        dataset_url     = f'http://api.worldbank.org/v2/en/indicator/{indicator}?downloadformat=csv'
         df              = fetch(dataset_url, indicator)
         file_processed  = write_to_gcs(df, year, month, indicator)
         return len(df), file_processed
@@ -121,8 +121,8 @@ def transform_data_to_schema(path: Path) -> pd.DataFrame:
     df['year'] = df['year'].astype(int)
 
     # Add a new column called 'created_on' as the first column
-    #df.insert(0, 'created_on', pd.Timestamp('now'))
-
+    df.insert(0, 'created_on', pd.Timestamp('now'))
+  
     return df 
 
 @flow(log_prints=True)
@@ -193,31 +193,17 @@ def el_test(year: int = datetime.datetime.now().year, month: int = datetime.date
     print(f'Loading process finished..')
     
 
-    
-
-
 
 @flow(log_prints=True)
 def extraction_load_flow(year: int = datetime.datetime.now().year, month: int = datetime.datetime.now().month):
 
-    
-    
     # Extraction process
     extraction_flow(year, month)
 
     # Load process
     load_flow(year, month)
 
-    '''    
-    # Test
-    el_test(1990, month)
     
-    rows_processed = 0
-    file_processed = None
-    for indicator in indicators:
-        rows_processed, file_processed = web_to_gcs(month, indicator)
-        print(f'File processed: {file_processed} | Rows: {rows_processed}')
-    '''
 
 if __name__ == '__main__':
     year            = datetime.datetime.now().year
