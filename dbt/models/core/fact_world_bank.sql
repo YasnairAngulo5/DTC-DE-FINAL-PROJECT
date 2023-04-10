@@ -15,3 +15,4 @@ select
 from {{ ref("stg_world_bank") }} as wb
 inner join
     {{ ref("countries") }} as countries on wb.country_code = countries.country_code
+where wb.year between ( select max(year) - 10 from {{ ref("stg_world_bank") }} ) and ( select max(year) from {{ ref("stg_world_bank") }})
