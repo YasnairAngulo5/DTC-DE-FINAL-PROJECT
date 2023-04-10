@@ -67,12 +67,9 @@ resource "google_bigquery_table" "table" {
   schema = <<EOF
 [
     {
-      "name" : "create_on",
-      "type" : "TIMESTAMP",
-      "mode" : "REQUIRED",
-      "default": "CURRENT_TIMESTAMP()",
-      "description" : "Date of creation in the Datawarehouse"
-      
+      "name" : "country_name",
+      "type" : "STRING",
+      "description" : "Name of the country"
     },
     {
       "name" : "country_code",
@@ -80,20 +77,16 @@ resource "google_bigquery_table" "table" {
       "description" : "Code of the country"
     },
     {
-      "name" : "country_name",
+      "name" : "ind_name",
       "type" : "STRING",
-      "description" : "Name of the country"
+      "description" : "Indicator name"
     },
     {
       "name" : "ind_code",
       "type" : "STRING",
       "description" : "Indicator code"
     },
-    {
-      "name" : "ind_name",
-      "type" : "STRING",
-      "description" : "Indicator name"
-    },
+
     {
       "name" : "year",
       "type" : "INTEGER",
