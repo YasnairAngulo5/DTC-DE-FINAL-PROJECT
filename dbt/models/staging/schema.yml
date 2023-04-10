@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: staging
+    database: dtc-de-project-382603
+    schema: bank_data
+
+    tables:
+        - name: world_bank
+
+models:
+    - name: stg_world_bank
+      description: >
+        The world_bank table contains several indicators related to key economic aspects of different countries. 
+        These indicators have been sourced from the World Bank data and have been gathered to analyze the economic 
+        performance of different countries over time. 
+        columns:
+          - name: wbid
+            description: Primary key for this table, generated with a concatenation of country_code + ind_code + year
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
+          - name: country_name
+            description: The name of the country for which the indicator value is reported.
+          - name: country_code
+            description: The code assigned to the country by the ISO (International Organization for Standardization).
+          - name: ind_name
+            description: The name of the indicator as reported by the World Bank.
+          - name: ind_code
+            description: The code assigned to the indicator by the World Bank.
+          - name: year
+            description: The year for which the indicator value is reported.
+          - name: value
+            description: The value of the indicator for the given country, year, and indicator.
+
+
+
