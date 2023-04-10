@@ -2,7 +2,10 @@
 
 select
     wb.wbid,
-    countries.region,
+    case
+        when countries.region is null then wb.country_name
+        else countries.region
+    end as region,
     wb.country_name,
     wb.country_code,
     wb.ind_name,
